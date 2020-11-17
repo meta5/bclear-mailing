@@ -10,7 +10,7 @@
       {
         "notifyOnSuccess": true,
         "notifyOnFail": true,
-        "packageName": "@meta5/nestjs-mailing"
+        "packageName": "@meta5/bclear-mailing"
       }
     ]
   ]
