@@ -1,0 +1,120 @@
+{
+  "name": "@meta5/bclear-mailing",
+  "version": "1.3.0",
+  "description": "Mailing module for BClear.",
+  "main": "./dist/index.js",
+  "author": {
+    "email": "mirsad@meta5.io",
+    "name": "Mirsad Halilcevic"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/meta5/bclear-mailing.git",
+    "directory": "@meta5/bclear-mailing"
+  },
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "prepublishOnly": "npm run build",
+    "build": "nest build",
+    "typeorm:cli": "node -r ts-node/register -r tsconfig-paths/register node_modules/typeorm/cli.js",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start:dev": "nest start --watch",
+    "lint": "eslint \"src/**/*.ts\" --fix",
+    "test": "jest --maxWorkers=4 --detectOpenHandles",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "semantic-release": "semantic-release"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged",
+      "post-commit": "git update-index --again"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "@meta5/nestjs-config": "^1.4.0",
+    "@meta5/nestjs-shared": "^1.10.2",
+    "@nestjs/common": "^7.5.2",
+    "@nestjs/config": "^0.5.0",
+    "@nestjs/core": "^7.5.2",
+    "@nestjs/jwt": "^7.2.0",
+    "@nestjs/swagger": "^4.7.3",
+    "@sendgrid/mail": "^7.4.0",
+    "class-validator": "^0.12.2",
+    "handlebars": "^4.7.6",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.2",
+    "typeorm": "^0.2.29"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^10.0.0",
+    "@commitlint/config-conventional": "^10.0.0",
+    "@nestjs/cli": "^7.5.2",
+    "@nestjs/schematics": "^7.2.1",
+    "@nestjs/testing": "^7.5.2",
+    "@types/jest": "25.2.3",
+    "@types/node": "^13.13.30",
+    "@typescript-eslint/eslint-plugin": "3.0.2",
+    "@typescript-eslint/parser": "3.0.2",
+    "commitlint": "^9.1.2",
+    "eslint": "7.1.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prefer-arrow": "^1.2.1",
+    "husky": "^4.3.0",
+    "jest": "26.0.1",
+    "lint-staged": "^10.5.1",
+    "prettier": "^1.19.1",
+    "semantic-release": "^17.2.2",
+    "semantic-release-npm-github-publish": "^1.4.0",
+    "semantic-release-slack-bot": "^1.6.2",
+    "ts-jest": "26.1.0",
+    "ts-loader": "^6.2.1",
+    "ts-node": "^8.6.2",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^3.7.4"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "../coverage",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/config",
+      "<rootDir>/infrastructure/entities",
+      "<rootDir>/specs/fixtures"
+    ],
+    "testEnvironment": "node",
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "verbose": true
+  }
+}

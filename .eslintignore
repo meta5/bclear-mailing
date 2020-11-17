@@ -1,0 +1,6 @@
+temp
+**/*.spec.ts
+**/*.js
+node_modules
+dist
+.github
