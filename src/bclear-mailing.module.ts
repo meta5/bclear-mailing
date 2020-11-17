@@ -9,7 +9,7 @@ import { MailTransport } from './api/services/mail-transport';
 import { SendgridMailTransport } from './api/services/sendgrid-mail-transport';
 import { Directories } from './config/directories';
 import { Sendgrid } from './config/sendgrid';
-import { UserRegisteredHandler } from './api/integration-events/user-registered.handler';
+import { UserCreatedHandler } from './api/integrations/user-created.handler';
 import { Urls } from './config/urls';
 import {
   SharedModule,
@@ -24,7 +24,7 @@ import { compile } from 'handlebars';
 import { promises } from 'fs';
 import { join } from 'path';
 
-const integrations: IntegrationEventHandlerType[] = [UserRegisteredHandler];
+const integrations: IntegrationEventHandlerType[] = [UserCreatedHandler];
 
 @Module({
   imports: [SharedModule, ConfigFactoryModule],
