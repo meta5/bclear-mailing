@@ -11,6 +11,7 @@ import { Directories } from './config/directories';
 import { Sendgrid } from './config/sendgrid';
 import { UserCreatedHandler } from './api/integrations/user-created.handler';
 import { Urls } from './config/urls';
+import { Mails } from './config/mails';
 import {
   SharedModule,
   IntegrationEventHandlerType
@@ -33,7 +34,7 @@ const integrations: IntegrationEventHandlerType[] = [UserCreatedHandler];
     { provide: Mailer, useClass: DefaultMailer },
     { provide: MailTransport, useClass: SendgridMailTransport },
     { provide: TemplateFactory, useClass: HandlebarTemplateFactory },
-    ...[Directories, Sendgrid, Urls].map((x) => ({
+    ...[Directories, Sendgrid, Urls, Mails].map((x) => ({
       provide: x,
       inject: [ConfigProviderFactory],
       useFactory: (factory: ConfigProviderFactory) => factory.createProvider(x)

@@ -3,14 +3,14 @@ import { TemplateFactory } from '../services/template-factory';
 import { EmailBuilder } from '../services/email-builder';
 import { Email } from '../models/email';
 import { MailTransport } from '../services/mail-transport';
+import { Mails } from '../../config/mails';
 import { BadRequestException, Inject } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
 import { Recipient, TemplateRenderContext } from '@meta5/nestjs-shared';
 
 export class DefaultMailer implements Mailer {
   constructor(
-    private readonly configService: ConfigService,
     @Inject(TemplateFactory) private readonly templateFactory: TemplateFactory,
+    @Inject(Mails) private readonly mails: Mails,
     @Inject(MailTransport) private readonly mailTransport: MailTransport
   ) {}
 
@@ -38,7 +38,7 @@ export class DefaultMailer implements Mailer {
     );
 
     const email: Email = new EmailBuilder()
-      .addSender(this.configService.get<string>('email.from'))
+      .addSender(this.mails.from)
       .addRecipient(...recipients.map((x: Recipient) => x.email))
       .addContent(content, true)
       .addSubject(subject)
