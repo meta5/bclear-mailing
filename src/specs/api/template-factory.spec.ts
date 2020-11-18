@@ -56,7 +56,7 @@ describe('TemplateFactory', () => {
 
   it('should render not preloaded template', async () => {
     const template: string = await templateFactory.createTemplate(
-      Template.CONFIRMATION,
+      Template.WELCOME,
       {}
     );
 

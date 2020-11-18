@@ -38,12 +38,10 @@ describe('Templates', () => {
   });
 
   it('should find template by name', async () => {
-    const template: Template = await templates.findByName(
-      Template.CONFIRMATION
-    );
+    const template: Template = await templates.findByName(Template.WELCOME);
     expect(template).toBeDefined();
     expect(typeof template.content).toBe('string');
-    expect(template.name).toBe(Template.CONFIRMATION);
+    expect(template.name).toBe(Template.WELCOME);
   });
 
   it('should find all templates', async () => {

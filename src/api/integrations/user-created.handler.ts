@@ -29,8 +29,8 @@ export class UserCreatedHandler
   }: UserCreatedEvent): Promise<void> {
     await this.mailer.sendMany(
       [new Recipient(email, name)],
-      'confirmation',
-      'Confirm Email to activate account',
+      'welcome',
+      'Welcome to BClear.',
       {
         name,
         email,

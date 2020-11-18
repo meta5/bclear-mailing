@@ -5,9 +5,7 @@ import { promises } from 'fs';
 import { join } from 'path';
 
 export class InMemoryTemplates implements Templates {
-  public static readonly SUPPORTED_TEMPLATES: string[] = [
-    Template.CONFIRMATION
-  ];
+  public static readonly SUPPORTED_TEMPLATES: string[] = [Template.WELCOME];
 
   constructor(
     private readonly directories: Directories,

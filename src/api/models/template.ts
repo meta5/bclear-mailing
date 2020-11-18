@@ -1,5 +1,5 @@
 export class Template {
-  public static readonly CONFIRMATION = 'confirmation';
+  public static readonly WELCOME = 'welcome';
 
   constructor(
     public readonly name: string,
