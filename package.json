@@ -1,6 +1,6 @@
 {
   "name": "@meta5/bclear-mailing",
-  "version": "1.3.0",
+  "version": "0.0.0",
   "description": "Mailing module for BClear.",
   "main": "./dist/index.js",
   "author": {
