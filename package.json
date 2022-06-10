@@ -84,7 +84,7 @@
     "jest": "26.0.1",
     "lint-staged": "^10.5.1",
     "prettier": "^1.19.1",
-    "semantic-release": "^17.2.3",
+    "semantic-release": "^19.0.3",
     "semantic-release-npm-github-publish": "^1.4.0",
     "semantic-release-slack-bot": "^1.6.2",
     "ts-jest": "26.1.0",
